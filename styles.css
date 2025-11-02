@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.viewport-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #1a1a1a;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.viewport-container.dragging {
+    cursor: grabbing;
+}
+
+.virtual-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+    will-change: transform;
+}
+
+.grid-item {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    overflow: hidden;
+    pointer-events: auto;
+    cursor: pointer;
+    /* Performance optimizations */
+    content-visibility: auto;
+    contain: layout style paint;
+    transform: translateZ(0);
+    will-change: auto;
+}
+
+.grid-item img,
+.grid-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
